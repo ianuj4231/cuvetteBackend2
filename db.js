@@ -5,8 +5,8 @@ mongoose.connect(DB_URL);
 
 const companySchema = new mongoose.Schema({
     name: { type: String, required: true },
-    companyEmail: { type: String, required: true, unique: true },
-    phoneNumber: { type: String, required: true, unique: true }, 
+    companyEmail: { type: String, required: true },
+    phoneNumber: { type: String, required: true  }, 
     isVerified: {
         email: { type: Boolean, default: false },
         phoneNumber: { type: Boolean, default: false },
@@ -30,7 +30,7 @@ const jobPostingSchema = new mongoose.Schema({
 const JobPosting = mongoose.model('JobPosting', jobPostingSchema);
 
 const OtpSchemaPhone = new mongoose.Schema({
-    phoneNumber: { type: String, required: true, unique: true }, 
+    phoneNumber: { type: String, required: true }, 
     otp: { type: String, required: true },
     created_at_time: { type: Date, expires: '5m', default: Date.now }
 });
@@ -38,7 +38,7 @@ const OtpSchemaPhone = new mongoose.Schema({
 const OtpModelPhone = mongoose.model("OTPPhone", OtpSchemaPhone);
 
 const OtpSchemaEmail = new mongoose.Schema({
-    companyEmail : { type: String, required: true, unique: true }, 
+    companyEmail : { type: String, required: true }, 
     otp: { type: String, required: true },
     created_at_time: { type: Date, expires: '5m', default: Date.now }
 });
