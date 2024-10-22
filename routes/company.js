@@ -3,8 +3,6 @@ const router = express.Router();
 const { Company, JobPosting, OtpModelPhone, OtpModelEmail } = require("../db");
 const app = express();
 const nodemailer =  require("nodemailer");
-const MailerSend = require('mailersend');
-const postmark = require("postmark");
 
 require('dotenv').config();
 const jwt = require("jsonwebtoken");
