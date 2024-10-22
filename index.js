@@ -3,9 +3,13 @@ const mainRouter = require("./routes/index");
 const cors = require("cors");
 const app = express();
 const PORT = 5000;
-app.use(express.json());
+// app.use(express.json());
+app.use(cors({
+    origin:"https://cuvette-fullstack-webapp.vercel.app",
+    credentials: true,
+  }));
 
-app.use(cors({origin: "https://cuvette-fullstack-webapp.vercel.app"}));
+app.use(cors());
 app.use("/api/v1",  (req, res, next)=>{console.log("in serverxx");next();
 } , mainRouter);
 
